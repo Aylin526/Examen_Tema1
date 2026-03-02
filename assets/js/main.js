@@ -127,6 +127,56 @@ function drawScene() {
   drawTree(500, 320, 1, '#228B22');
   drawTree(650, 340, 0.8, '#2E8B57');
 }
+// ========== 6. RÍO Y PUENTE ==========
+
+// Dibuja el río usando una curva Bézier
+function drawRiver() {
+  ctx.beginPath();
+  ctx.moveTo(0, 400);
+  ctx.bezierCurveTo(200, 420, 400, 500, 800, 470);
+  ctx.lineWidth = 30;
+  ctx.strokeStyle = '#1E90FF'; // azul del agua
+  ctx.stroke();
+  ctx.closePath();
+}
+
+// Dibuja un puente simple de madera
+function drawBridge() {
+  ctx.fillStyle = '#A0522D'; // marrón madera
+  ctx.fillRect(380, 430, 60, 15);
+  ctx.fillRect(380, 445, 60, 5);
+  ctx.strokeStyle = '#5C3317';
+  ctx.lineWidth = 2;
+  ctx.strokeRect(380, 430, 60, 20);
+}
+
+// ========== ESCENA PRINCIPAL ==========
+function drawScene() {
+  ctx.clearRect(0, 0, canvas.width, canvas.height);
+  drawSky();
+  drawGround();
+  drawSun();
+
+  // Nubes
+  drawCloud(600, 100);
+  drawCloud(700, 150);
+
+  // Piedras
+  drawStone(700, 500, 20);
+  drawStone(730, 510, 15);
+  drawStone(680, 510, 10);
+
+  // Árboles
+  drawTree(150, 320, 1, '#2E8B57');
+  drawTree(250, 330, 0.9, '#228B22');
+  drawTree(350, 310, 1.1, '#006400');
+  drawTree(500, 320, 1, '#228B22');
+  drawTree(650, 340, 0.8, '#2E8B57');
+
+  // Río y puente
+  drawRiver();
+  drawBridge();
+}
 
 // Inicializar y dibujar
 initCanvas();
