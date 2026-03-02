@@ -82,6 +82,51 @@ function drawScene() {
   drawStone(730, 510, 15);
   drawStone(680, 510, 10);
 }
+// ========== 5. ÁRBOLES ==========
+
+// Dibuja un tronco de árbol
+function drawTrunk(x, y, w = 20, h = 80) {
+  ctx.fillStyle = '#8B4513'; // marrón
+  ctx.fillRect(x, y, w, h);
+}
+
+// Dibuja la copa del árbol (círculo verde)
+function drawCrown(x, y, r = 40, color = '#2E8B57') {
+  drawCircle(x, y, r, color);
+}
+
+// Dibuja un árbol completo combinando tronco y copa
+function drawTree(x, y, scale = 1, color = '#2E8B57') {
+  const trunkHeight = 80 * scale;
+  const trunkWidth = 20 * scale;
+  const crownRadius = 40 * scale;
+  drawTrunk(x, y, trunkWidth, trunkHeight);
+  drawCrown(x + trunkWidth / 2, y, crownRadius, color);
+}
+
+// ========== ESCENA PRINCIPAL ==========
+function drawScene() {
+  ctx.clearRect(0, 0, canvas.width, canvas.height);
+  drawSky();
+  drawGround();
+  drawSun();
+
+  // Nubes
+  drawCloud(600, 100);
+  drawCloud(700, 150);
+
+  // Piedras
+  drawStone(700, 500, 20);
+  drawStone(730, 510, 15);
+  drawStone(680, 510, 10);
+
+  // Árboles
+  drawTree(150, 320, 1, '#2E8B57');
+  drawTree(250, 330, 0.9, '#228B22');
+  drawTree(350, 310, 1.1, '#006400');
+  drawTree(500, 320, 1, '#228B22');
+  drawTree(650, 340, 0.8, '#2E8B57');
+}
 
 // Inicializar y dibujar
 initCanvas();
