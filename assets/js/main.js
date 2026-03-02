@@ -250,6 +250,66 @@ function drawScene() {
   drawSquirrel(500, 420);
   drawBird(320, 420);
 }
+// ====== 8. Flores y detalles finales ========
+
+// Dibuja una flor con pétalos circulares y centro amarillo
+function drawFlower(x, y) {
+  ctx.fillStyle = '#FF69B4'; // rosa
+  drawCircle(x, y, 5, '#FF69B4');
+  drawCircle(x + 6, y, 5, '#FF69B4');
+  drawCircle(x - 6, y, 5, '#FF69B4');
+  drawCircle(x, y - 6, 5, '#FF69B4');
+  drawCircle(x, y + 6, 5, '#FF69B4');
+  drawCircle(x, y, 3, 'yellow'); // centro
+}
+
+// Dibuja arbustos pequeños como detalles decorativos
+function drawBush(x, y) {
+  drawCircle(x, y, 20, '#228B22');
+  drawCircle(x + 15, y, 20, '#2E8B57');
+  drawCircle(x - 15, y, 20, '#006400');
+}
+
+// === Agregar flores y arbustos dentro de drawScene() ===
+function drawScene() {
+  ctx.clearRect(0, 0, canvas.width, canvas.height);
+  drawSky();
+  drawGround();
+  drawSun();
+
+  // Nubes
+  drawCloud(600, 100);
+  drawCloud(700, 150);
+
+  // Piedras
+  drawStone(700, 500, 20);
+  drawStone(730, 510, 15);
+  drawStone(680, 510, 10);
+
+  // Árboles
+  drawTree(150, 320, 1, '#2E8B57');
+  drawTree(250, 330, 0.9, '#228B22');
+  drawTree(350, 310, 1.1, '#006400');
+  drawTree(500, 320, 1, '#228B22');
+  drawTree(650, 340, 0.8, '#2E8B57');
+
+  // Río y puente
+  drawRiver();
+  drawBridge();
+
+  // Animales
+  drawRabbit(200, 450);
+  drawRabbit(600, 460);
+  drawSquirrel(500, 420);
+  drawBird(320, 420);
+
+  // Flores y arbustos
+  drawFlower(400, 480);
+  drawFlower(420, 460);
+  drawFlower(450, 490);
+  drawBush(100, 500);
+  drawBush(700, 520);
+}
 
 // Inicializar y dibujar
 initCanvas();
