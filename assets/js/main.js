@@ -177,6 +177,79 @@ function drawScene() {
   drawRiver();
   drawBridge();
 }
+// ==== 7. Animales: conejo, ardilla y pájaro =====
+
+// Dibuja un conejo sencillo con dos círculos (cuerpo y cabeza)
+function drawRabbit(x, y) {
+  // Cuerpo
+  drawCircle(x, y, 15, 'white');
+  // Cabeza
+  drawCircle(x + 15, y - 10, 10, 'white');
+  // Orejas
+  ctx.fillStyle = 'white';
+  ctx.fillRect(x + 20, y - 30, 5, 15);
+  ctx.fillRect(x + 10, y - 30, 5, 15);
+}
+
+// Dibuja una ardilla con círculos y una cola curva
+function drawSquirrel(x, y) {
+  // Cuerpo
+  drawCircle(x, y, 15, '#C68642');
+  // Cabeza
+  drawCircle(x + 15, y - 10, 10, '#C68642');
+  // Cola
+  ctx.beginPath();
+  ctx.arc(x - 10, y - 5, 10, Math.PI / 2, Math.PI * 1.5);
+  ctx.strokeStyle = '#C68642';
+  ctx.lineWidth = 8;
+  ctx.stroke();
+}
+
+// Dibuja un pájaro con forma de triángulo
+function drawBird(x, y) {
+  ctx.beginPath();
+  ctx.moveTo(x, y);
+  ctx.lineTo(x + 10, y - 10);
+  ctx.lineTo(x + 20, y);
+  ctx.closePath();
+  ctx.fillStyle = '#FF8C00'; // naranja
+  ctx.fill();
+  ctx.stroke();
+}
+
+// === Llamar animales dentro de drawScene() ===
+function drawScene() {
+  ctx.clearRect(0, 0, canvas.width, canvas.height);
+  drawSky();
+  drawGround();
+  drawSun();
+
+  // Nubes
+  drawCloud(600, 100);
+  drawCloud(700, 150);
+
+  // Piedras
+  drawStone(700, 500, 20);
+  drawStone(730, 510, 15);
+  drawStone(680, 510, 10);
+
+  // Árboles
+  drawTree(150, 320, 1, '#2E8B57');
+  drawTree(250, 330, 0.9, '#228B22');
+  drawTree(350, 310, 1.1, '#006400');
+  drawTree(500, 320, 1, '#228B22');
+  drawTree(650, 340, 0.8, '#2E8B57');
+
+  // Río y puente
+  drawRiver();
+  drawBridge();
+
+  // Animales
+  drawRabbit(200, 450);
+  drawRabbit(600, 460);
+  drawSquirrel(500, 420);
+  drawBird(320, 420);
+}
 
 // Inicializar y dibujar
 initCanvas();
