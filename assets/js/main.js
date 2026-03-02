@@ -24,19 +24,19 @@ function initCanvas() {
 
 // ========== 2. FIGURAS DEL FONDO ==========
 
-/*Dibuja el cielo*/
+// Dibuja el cielo
 function drawSky() {
   ctx.fillStyle = '#87CEEB'; // azul cielo
   ctx.fillRect(0, 0, canvas.width, canvas.height * 0.6);
 }
 
-/*Dibuja el suelo o césped*/
+// Dibuja el suelo o césped
 function drawGround() {
   ctx.fillStyle = '#7CFC00'; // verde pasto
   ctx.fillRect(0, canvas.height * 0.6, canvas.width, canvas.height * 0.4);
 }
 
-/* Dibuja el sol */
+// Dibuja el sol
 function drawSun(x = 100, y = 100, r = 40) {
   ctx.beginPath();
   ctx.arc(x, y, r, 0, Math.PI * 2);
@@ -44,12 +44,43 @@ function drawSun(x = 100, y = 100, r = 40) {
   ctx.fill();
 }
 
-// ========== 3. ESCENA PRINCIPAL ==========
+// == 3 Elementos naturales: nubes y piedras ==========
+
+// Dibuja un círculo (figura básica reutilizable)
+function drawCircle(x, y, r, color) {
+  ctx.beginPath();
+  ctx.arc(x, y, r, 0, Math.PI * 2);
+  ctx.fillStyle = color;
+  ctx.fill();
+}
+
+// Dibuja una nube con tres círculos
+function drawCloud(x, y) {
+  drawCircle(x, y, 25, 'white');
+  drawCircle(x + 25, y + 10, 25, 'white');
+  drawCircle(x - 25, y + 10, 25, 'white');
+}
+
+// Dibuja una piedra simple
+function drawStone(x, y, r) {
+  drawCircle(x, y, r, 'gray');
+}
+
+// Añadir llamadas dentro de drawScene()
 function drawScene() {
   ctx.clearRect(0, 0, canvas.width, canvas.height);
   drawSky();
   drawGround();
   drawSun();
+
+  // Nubes
+  drawCloud(600, 100);
+  drawCloud(700, 150);
+
+  // Piedras
+  drawStone(700, 500, 20);
+  drawStone(730, 510, 15);
+  drawStone(680, 510, 10);
 }
 
 // Inicializar y dibujar
