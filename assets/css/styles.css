@@ -1,52 +1,40 @@
-/* Estilos generales - Paisaje en Canvas 2D */
+/*Estilos generales - Paisaje en Canvas 2D*/
 
-/* Fondo general del sitio */
 body {
-  background-color: #e6f3ff; /* azul muy claro */
+  background-color: #f8fbff;
   font-family: "Poppins", sans-serif;
   color: #333;
-}
-
-/* Navbar */
-.navbar-brand {
-  font-weight: 600;
-  letter-spacing: 0.5px;
 }
 
 .navbar {
   box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
 }
 
-/* Canvas */
-#bosqueCanvas {
-  background-color: #cfe8ff; /* tono de cielo */
-  border: 2px solid #2e8b57;
+.canvas-container {
+  background: #ffffff;
+  border: 3px solid #2e8b57;
   border-radius: 12px;
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
-  transition: transform 0.3s ease;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.25);
+  padding: 10px;
+  display: inline-block;
 }
 
-#bosqueCanvas:hover {
-  transform: scale(1.02);
+#bosqueCanvas, 
+.original-img {
+  width: 100%;
+  height: auto;
+  border: 2px solid #000;
+  border-radius: 10px;
 }
 
-/* Imagen original */
-img {
-  border-radius: 12px;
-  border: 2px solid #2e8b57;
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
-}
-
-/* Footer */
 footer {
   font-size: 0.9rem;
   letter-spacing: 0.5px;
 }
 
-/* Ajustes responsivos */
+/* Responsivo */
 @media (max-width: 768px) {
-  #bosqueCanvas {
-    width: 100%;
-    height: auto;
+  .canvas-container {
+    margin-bottom: 20px;
   }
 }
